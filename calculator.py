@@ -1,64 +1,95 @@
-import math
+from statistics import quantiles
+from tkinter import *
 
-def add():
-    print(num1, "+", num2, "=", num1 + num2)
+root = Tk()
+root.title("Calculator")
+root.geometry("500x500")
 
-def sub():
-    print(num1, "-", num2, "=", num1 - num2)
+equation = StringVar()
+eqStr = ""
 
-def multiply():
-    print(num1, "x", num2, "=", num1 * num2)
+def calculator(event):
+    global eqStr
+    char = event.widget.cget("text")
+    if chat == "=" :
+        answer = eval(equation.get())
+        equation.set(answer)
+    else:
+        eqStr = eqStr + char
+        equation.set(eqStr)
 
-def divide():
-    print(num1, "/", num2, "=", num1 / num2)
+entry = Entry(root, font= ("Arial", 30), relief=SUNKEN, borderwidth=10)
+entry.grid(row=0 , column=0, columnspan=4)
 
-def power():
-    print(num1, "^", num2, "=", num1 * num1)
+button = Button(root, text="7", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=1, column=0)
+button.bind("<Button-1>",calculator)
 
-def sqroot():
-    print("Square Root of", num1, "=", math.sqrt(num1) )
+button = Button(root, text="8", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=1, column=1)
+button.bind("<Button-1>",calculator)
 
-# cube root function is in the code line 61 (i saved time)
+button = Button(root, text="9", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=1, column=2)
+button.bind("<Button-1>",calculator)
 
-interface = int(input("Choose an Option from the Following List:\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Power\n6. Square Root\n7. Cube Root\nEnter (1, 2, 3, 4, 5, 6 or 7): "))
-if interface == 1:
-    num1 = int(input("Enter the First Number: "))
-    num2 = int(input("Enter the Second Number: "))
+button = Button(root, text="+", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=1, column=3)
+button.bind("<Button-1>",calculator)
 
-    add()
-elif interface == 2:
-    num1 = int(input("Enter the First Number: "))
-    num2 = int(input("Enter the Second Number: "))
+# -----------------------------------------
 
-    sub()
+button = Button(root, text="4", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=2, column=0)
+button.bind("<Button-1>",calculator)
 
-elif interface == 3:
-    num1 = int(input("Enter the First Number: "))
-    num2 = int(input("Enter the Second Number: "))
+button = Button(root, text="5", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=2, column=1)
+button.bind("<Button-1>",calculator)
 
-    multiply()
-    
-elif interface == 4:
-    num1 = int(input("Enter the First Number: "))
-    num2 = int(input("Enter the Second Number: "))
+button = Button(root, text="6", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=2, column=2)
+button.bind("<Button-1>",calculator)
 
-    divide()
+button = Button(root, text="-", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=2, column=3)
+button.bind("<Button-1>",calculator)
 
-elif interface == 5:
-    num1 = int(input("Enter the First Number: "))
-    num2 = int(input("Enter a value of Power: "))
+# -----------------------------------------
 
-    power()
+button = Button(root, text="1", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=3, column=0)
+button.bind("<Button-1>",calculator)
 
-elif interface == 6:
-    num1 = int(input("Enter Number: "))
+button = Button(root, text="2", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=3, column=1)
+button.bind("<Button-1>",calculator)
 
-    sqroot()
+button = Button(root, text="3", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=3, column=2)
+button.bind("<Button-1>",calculator)
 
-elif interface == 7:
-    num1 = int(input("Enter Number: "))
+button = Button(root, text="x", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=3, column=3)
+button.bind("<Button-1>",calculator)
 
-    print("Cube Root of", num1, "=", math.cbrt(num1) )
+# -----------------------------------------
 
-else:
-    print("Invaild Option!")
+button = Button(root, text=".", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=4, column=0)
+button.bind("<Button-1>",calculator)
+
+button = Button(root, text="0", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=4, column=1)
+button.bind("<Button-1>",calculator)
+
+button = Button(root, text="/", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=4, column=2)
+button.bind("<Button-1>",calculator)
+
+button = Button(root, text="=", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=4, column=3)
+button.bind("<Button-1>",calculator)
+
+
+root.mainloop()
