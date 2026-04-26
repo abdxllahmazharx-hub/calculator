@@ -1,3 +1,4 @@
+import math 
 from statistics import quantiles
 from tkinter import *
 
@@ -14,11 +15,23 @@ def calculator(event):
     if char == "=" :
         answer = eval(equation.get())
         equation.set(answer)
+    elif char == "√" :
+        answer = math.sqrt(float(equation.get()))
+        equation.set(answer)
+    elif char == "^" :
+        eqStr += "**"
+        equation.set(eqStr)
+    elif char == "AC" :
+        eqStr = ""
+        equation.set("")
+    elif char == "<-" :
+        eqStr[: -1]
+        equation.set(eqStr)
     else:
         eqStr = eqStr + char
         equation.set(eqStr)
 
-entry = Entry(root, font= ("Arial", 30), relief=SUNKEN, borderwidth=10)
+entry = Entry(root, font= ("Arial", 30), relief=SUNKEN, borderwidth=10, textvariable=equation)
 entry.grid(row=0 , column=0, columnspan=4)
 
 button = Button(root, text="7", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
@@ -89,6 +102,24 @@ button.bind("<Button-1>",calculator)
 
 button = Button(root, text="=", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
 button.grid(row=4, column=3)
+button.bind("<Button-1>",calculator)
+
+# -----------------------------------------
+
+button = Button(root, text="√", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=5, column=0)
+button.bind("<Button-1>",calculator)
+
+button = Button(root, text="^", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=5, column=1)
+button.bind("<Button-1>",calculator)
+
+button = Button(root, text="AC", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=5, column=2)
+button.bind("<Button-1>",calculator)
+
+button = Button(root, text="<-", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button.grid(row=5, column=3)
 button.bind("<Button-1>",calculator)
 
 
