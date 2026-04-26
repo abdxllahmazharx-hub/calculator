@@ -11,7 +11,7 @@ eqStr = ""
 def calculator(event):
     global eqStr
     char = event.widget.cget("text")
-    if chat == "=" :
+    if char == "=" :
         answer = eval(equation.get())
         equation.set(answer)
     else:
