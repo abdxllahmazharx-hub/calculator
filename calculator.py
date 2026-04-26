@@ -24,8 +24,8 @@ def calculator(event):
     elif char == "AC" :
         eqStr = ""
         equation.set("")
-    elif char == "<-" :
-        eqStr[: -1]
+    elif char == "⌫" :
+        eqStr = eqStr[: -1]
         equation.set(eqStr)
     else:
         eqStr = eqStr + char
@@ -118,7 +118,7 @@ button = Button(root, text="AC", font= ("Arial", 30), height=1, width=4, relief=
 button.grid(row=5, column=2)
 button.bind("<Button-1>",calculator)
 
-button = Button(root, text="<-", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button = Button(root, text="⌫", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
 button.grid(row=5, column=3)
 button.bind("<Button-1>",calculator)
 
