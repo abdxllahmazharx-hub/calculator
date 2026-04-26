@@ -82,7 +82,7 @@ button = Button(root, text="3", font= ("Arial", 30), height=1, width=4, relief=R
 button.grid(row=3, column=2)
 button.bind("<Button-1>",calculator)
 
-button = Button(root, text="x",bg="orange", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button = Button(root, text="*",bg="orange", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
 button.grid(row=3, column=3)
 button.bind("<Button-1>",calculator)
 
