@@ -3,7 +3,7 @@ from statistics import quantiles
 from tkinter import *
 
 root = Tk()
-root.title("Calculator")
+root.title("Calculator by Abdullah")
 root.geometry("500x500")
 
 equation = StringVar()
@@ -114,7 +114,7 @@ button = Button(root, text="^",bg="orange", font= ("Arial", 30), height=1, width
 button.grid(row=5, column=1)
 button.bind("<Button-1>",calculator)
 
-button = Button(root, text="AC",bg="orange", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
+button = Button(root, text="AC",bg="orange",fg="red", font= ("Arial", 30), height=1, width=4, relief=RAISED, borderwidth=6)
 button.grid(row=5, column=2)
 button.bind("<Button-1>",calculator)
 
